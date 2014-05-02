@@ -8,6 +8,6 @@ _(Still on development)_
 TO DO
 -----
 
- * [X] parser
+ * [x] parser
  * [ ] check syntax
  * [ ] format (re-print the file)
