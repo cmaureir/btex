@@ -1,0 +1,24 @@
+#!/usr/bin/env python2
+
+import re
+from include.option_parser import OptionParser
+from include.bib_parser import BibParser
+
+if __name__ == "__main__":
+    # OptionParser to handle the command line options
+    op = OptionParser()
+    opt = op.get_options()
+
+    # Creating the bibtex parser to get the data from a file
+    bp = BibParser(opt.filename)
+    # Reading the file, and store it as unparsed items
+    items = bp.read_raw_content()
+    # Get the type of the entry, and their tag, but without parsing the content
+    #  of the entry.
+    pparsed = bp.get_pre_parsed_data(items)
+    # Get a list of dictionaries with the data of every entry on the text file
+    data = bp.get_parsed_data(pparsed)
+
+    # Print for debugging purporses
+    for d in data:
+        print d
